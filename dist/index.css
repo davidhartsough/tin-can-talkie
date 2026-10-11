@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  background: #101214;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at center, #00000022, #00000044, #000000aa),
+    linear-gradient(to top right, #f0f, #a0f, #05f, #0fa);
+  color: #fff;
+}
+body,
+main,
+section#room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+main {
+  position: relative;
+}
+section#room {
+  gap: 5vmin;
+  flex-direction: column;
+}
+@media (min-aspect-ratio: 1 / 1) {
+  section#room {
+    flex-direction: row;
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#reconnecting {
+  position: absolute;
+  top: 5vmin;
+  left: 50%;
+  transform: translate(-50%);
+  animation: pulse 2.5s infinite ease-in-out;
+}
+button {
+  --hue: 220;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vmin;
+  height: 50vmin;
+  font-size: 10vmin;
+  padding: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-block: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  background-color: hsl(var(--hue) 2% 98% / 0.3);
+  border: 0.25rem solid hsl(var(--hue) 2% 98% / 0.5);
+  color: hsl(var(--hue) 2% 98%);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  outline-offset: 0.25rem;
+  outline-width: 0.25rem;
+  outline-style: solid;
+  outline-color: hsl(var(--hue) 2% 98% / 0.01);
+  transform: scale(1);
+  transition:
+    background-color 0.2s,
+    transform 0.2s,
+    outline-color 0.2s,
+    color 0.2s;
+  &:hover {
+    background-color: hsl(var(--hue) 2% 98% / 0.4);
+    transform: scale(1.05);
+  }
+  &:focus-visible,
+  &:focus {
+    background-color: hsl(var(--hue) 2% 98% / 0.45);
+    transform: scale(1.05);
+    outline-color: hsl(var(--hue) 2% 98% / 0.5);
+  }
+  &:active {
+    background-color: hsl(var(--hue) 2% 98% / 0.8);
+    transform: scale(1.05);
+    outline-color: hsl(var(--hue) 2% 98% / 0.8);
+    color: hsl(var(--hue) 90% 20%);
+  }
+}
+#drop {
+  --hue: 0;
+  width: 25vmin;
+  height: 25vmin;
+  font-size: 5vmin;
+}
+[hidden] {
+  display: none !important;
+}

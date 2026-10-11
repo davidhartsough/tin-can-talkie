@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tin-Can-Talkie</title>
+    <meta name="description" content="like a tin-can telephone / walkie-talkie">
+    <meta name="author" content="David Hartsough">
+    <meta name="application-name" content="Tin-Can-Talkie">
+    <meta name="apple-mobile-web-app-title" content="Tin Can">
+    <meta name="theme-color" content="#281ac9">
+    <link rel="canonical" href="https://davidhartsough.com/tin-can-talkie">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tin-Can-Talkie">
+    <meta
+      property="og:description"
+      content="like a tin-can telephone / walkie-talkie"
+    >
+    <meta property="og:url" content="https://davidhartsough.com/tin-can-talkie">
+    <meta property="og:site_name" content="Tin-Can-Talkie">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="./icon-192.png">
+    <meta property="og:image:alt" content="Tin-Can-Talkie icon">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="192">
+    <meta property="og:image:height" content="192">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <main>
+      <button type="button" id="join">Join</button>
+      <section id="room" hidden>
+        <p id="reconnecting" hidden>Reconnecting...</p>
+        <button type="button" id="drop">Drop</button>
+        <button type="button" id="talk">Talk</button>
+        <div id="peers"></div>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

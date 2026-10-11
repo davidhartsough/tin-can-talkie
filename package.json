@@ -1,0 +1,29 @@
+{
+  "name": "tin-can-talkie",
+  "version": "0.0.1",
+  "description": "like a tin-can telephone / walkie-talkie",
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest"
+  },
+  "author": "davidhartsough",
+  "type": "module",
+  "packageManager": "pnpm@12.10.1",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.10.1",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "*",
+    "tsdown": "*",
+    "typescript": "*",
+    "vitest": "*"
+  },
+  "dependencies": {
+    "@metered-ca/realtime": "^1.2.0"
+  }
+}
