@@ -28,7 +28,7 @@ async function join() {
     joinBtn.disabled = false;
   }
 }
-async function leave() {
+async function leave(reload = false) {
   forceStopTalking();
   roomEl.hidden = true;
   joinBtn.hidden = false;
@@ -39,7 +39,7 @@ async function leave() {
   } catch (err) {
     console.error(err);
   } finally {
-    window.location.reload();
+    if (reload) window.location.reload();
   }
 }
 
@@ -47,7 +47,7 @@ joinBtn.addEventListener("click", async () => {
   await join();
 });
 dropBtn.addEventListener("click", async () => {
-  await leave();
+  await leave(true);
 });
 let pointerId: number | null = null;
 talkBtn.addEventListener("pointerdown", (e) => {
