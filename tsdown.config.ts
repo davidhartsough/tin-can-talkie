@@ -5,7 +5,7 @@ export default defineConfig([
     entry: ["./src/index.ts"],
     format: "esm",
     platform: "browser",
-    outDir: "./dist/",
+    outDir: "./",
     minify: true,
     clean: false,
     deps: {
