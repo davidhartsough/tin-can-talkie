@@ -13,8 +13,8 @@ async function join() {
   joinBtn.disabled = true;
   joinBtn.hidden = true;
   bannerEl.hidden = false;
-  initOsc();
   try {
+    await initOsc();
     const micStream = await initMic();
     await initPeer(micStream);
     roomEl.hidden = false;
