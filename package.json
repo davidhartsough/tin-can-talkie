@@ -1,6 +1,6 @@
 {
   "name": "tin-can-talkie",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "like a tin-can telephone / walkie-talkie",
   "scripts": {
     "build": "tsdown",

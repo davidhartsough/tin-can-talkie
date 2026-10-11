@@ -3,7 +3,7 @@
     "module": "esnext",
     "target": "esnext",
     "types": [],
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
@@ -16,5 +16,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": ["./src/**/*.ts"]
 }

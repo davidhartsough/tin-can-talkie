@@ -48,7 +48,7 @@ section#room {
     opacity: 1;
   }
 }
-#reconnecting {
+.banner {
   position: absolute;
   top: 5vmin;
   left: 50%;

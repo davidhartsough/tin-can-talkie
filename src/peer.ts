@@ -54,8 +54,9 @@ export async function initPeer(micStream: MediaStream) {
   await mp.join("call");
   playTone();
 }
-export function disconnect() {
+export async function disconnect() {
   const micStream = getMicStream();
   if (micStream) mp.removeStream(micStream);
+  await mp.close();
   playTone(false);
 }

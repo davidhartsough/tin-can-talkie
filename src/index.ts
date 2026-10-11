@@ -7,38 +7,47 @@ const joinBtn = getEl("join") as HTMLButtonElement;
 const dropBtn = getEl("drop") as HTMLButtonElement;
 const talkBtn = getEl("talk") as HTMLButtonElement;
 const roomEl = getEl("room") as HTMLDivElement;
+const bannerEl = getEl("connecting") as HTMLParagraphElement;
 
 async function join() {
   joinBtn.disabled = true;
-  roomEl.hidden = false;
   joinBtn.hidden = true;
+  bannerEl.hidden = false;
   initOsc();
   try {
     const micStream = await initMic();
     await initPeer(micStream);
+    roomEl.hidden = false;
   } catch (err) {
     console.error(err);
-    leave();
+    await leave();
     const message = err instanceof Error ? err.message : String(err);
     alert(`Couldn't join: ${message}`);
   } finally {
+    bannerEl.hidden = true;
     joinBtn.disabled = false;
   }
 }
-function leave() {
+async function leave() {
   forceStopTalking();
   roomEl.hidden = true;
   joinBtn.hidden = false;
   joinBtn.disabled = false;
   endMic();
-  disconnect();
+  try {
+    await disconnect();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    window.location.reload();
+  }
 }
 
 joinBtn.addEventListener("click", async () => {
   await join();
 });
-dropBtn.addEventListener("click", () => {
-  leave();
+dropBtn.addEventListener("click", async () => {
+  await leave();
 });
 let pointerId: number | null = null;
 talkBtn.addEventListener("pointerdown", (e) => {
@@ -80,6 +89,6 @@ window.addEventListener("blur", forceStopTalking);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) forceStopTalking();
 });
-window.addEventListener("beforeunload", () => {
-  leave();
+window.addEventListener("beforeunload", async () => {
+  await leave();
 });
